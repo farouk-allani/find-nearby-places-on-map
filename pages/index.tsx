@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { loadAmeneties } from "../redux/action/index";
 
 
+
 export default function Home({ clusters }: any) {
   const dispatch = useDispatch();
   const [selectedCluster, setSelectedCluster] = useState(null);
