@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to Nearest Amenities in Helsinki
+
+This app is built using the stack of GraphQL and Next.js. It enables the user to enter a location in Helsinki and shows the nearest amenities such as stops, bike rentals, bike parking, and car parking. The app consists of two screens:
+
+## Enter Location Screen
+This is the first screen where the user enters their location in Helsinki. The user can either enter the location manually or use the current location option.
+
+## Results Screen
+This is the second screen where the user can view the results of the nearest amenities. The results are displayed in two formats:
+
+- List: The results are displayed in a list format, showing the name, address, and distance of each amenity.
+- Map: The results are also displayed on a map using MapBox, showing the location of each amenity.
+
+The app uses the Digitransi API (https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql) to fetch the data for the nearest amenities.
 
 ## Getting Started
+To run the app, you need to first install the required dependencies by running npm install in the root directory. Then, start the development server by running npm run dev in the root directory. The app will be running on http://localhost:3000.
 
-First, run the development server:
+## Technologies used
+- GraphQL
+- Next.js
+- Digitransi API
+- MapBox
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Screenshots
+![homepage](https://user-images.githubusercontent.com/81933547/212565386-e01fb215-5ff6-4bc1-a453-30b34fc62a6a.png)
+![list](https://user-images.githubusercontent.com/81933547/212565392-6024deaa-0799-45a4-b830-86afb7ddf4b8.png)
+![ameneties](https://user-images.githubusercontent.com/81933547/212565516-81fb2cf7-89d0-459a-95bf-776ded317b48.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribution
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+If you would like to contribute to this project, please do the following:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Fork the repository
+2. Create a new branch for your feature
+3. Make your changes
+4. Test your changes
+5. Submit a pull request
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Author
+Farouk Allani
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the MIT License.
