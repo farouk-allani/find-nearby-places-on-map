@@ -1,4 +1,4 @@
-const ameneties = [];
+const ameneties = 'default';
 
 const handleAmeneties = (state = ameneties, action) => {
   switch (action.type) {

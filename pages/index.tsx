@@ -6,11 +6,9 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { loadAmeneties } from "../redux/action/index";
 
-
-
 export default function Home({ clusters }: any) {
   const dispatch = useDispatch();
-  const [selectedCluster, setSelectedCluster] = useState(null);
+  const [selectedCluster, setSelectedCluster] = useState("LATTAMIEHENTIE");
   const [nearest, setNearest] = useState(null);
 
   const lat = clusters.find(
@@ -20,18 +18,13 @@ export default function Home({ clusters }: any) {
     (cluster: any) => cluster.name === selectedCluster
   )?.lon;
 
-  const handleChange = (e: any) => {
-    let { value } = e.target;
-    setSelectedCluster(value);
-  };
   useEffect(() => {
-    if(!selectedCluster) return;
     const fetchNearest = async () => {
       const { data } = await client.query({
         query: gql`
       
         {
-    nearest(lat:${lat}, lon:${lon}, maxResults: 10, maxDistance: 1500, filterByPlaceTypes: [STOP, BIKE_PARK,CAR_PARK, BICYCLE_RENT]) {
+    nearest(lat:${lat}, lon:${lon}, maxResults: 10, maxDistance: 5000, filterByPlaceTypes: [STOP, BIKE_PARK,CAR_PARK, BICYCLE_RENT]) {
       edges {
       node {
         place {
@@ -70,10 +63,16 @@ export default function Home({ clusters }: any) {
     fetchNearest();
   }, [selectedCluster]);
 
+  const handleChange = (e: any) => {
+    console.log("e.target.value", e.target.value);
+    setSelectedCluster(e.target.value);
+    console.log("selected cluster", selectedCluster);
+    dispatch(loadAmeneties(nearest));
+  };
+
   const handleList = () => {
     dispatch(loadAmeneties(nearest));
   };
-    
 
   return (
     <div className={styles.container}>
@@ -85,16 +84,19 @@ export default function Home({ clusters }: any) {
           ))}
         </select>
       </div>
-      <div className={styles.wrap}> 
-      <Link href='/list'>
-      <button className={styles.btn} onClick={handleList} >List of nearby ameneties</button>
-      </Link>
-      <Link href='/map'>
-      <button className={styles.btn}>Nearby ameneties on Map</button>
-      </Link>
+      <div className={styles.wrap}>
+        <Link href="/list">
+          <button className={styles.btn} onClick={handleList}>
+            List of nearby ameneties
+          </button>
+        </Link>
+        <Link href="/map">
+          <button className={styles.btn} onClick={handleList}>
+            Nearby ameneties on Map
+          </button>
+        </Link>
       </div>
     </div>
-   
   );
 }
 

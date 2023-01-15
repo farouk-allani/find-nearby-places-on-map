@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from '../styles/List.module.css'
@@ -19,9 +20,12 @@ const list = () => {
                 {amenety.node.place.spacesAvailable && <p>Spaces available: {amenety.node.place.spacesAvailable}</p>}
                 {amenety.node.place.bikeParkId && <p>Bike park id: {amenety.node.place.bikeParkId}</p>}
                 {amenety.node.place.carParkId && <p>Car park id: {amenety.node.place.carParkId}</p>}
+             
              </div>    
                  ))}
-            
+                 <Link href='/'>
+               <button className={styles.btn} >Go back</button>
+                 </Link>
     </div>
   )
 }
