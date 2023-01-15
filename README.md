@@ -43,3 +43,7 @@ Farouk Allani
 
 ## License
 This project is licensed under the MIT License.
+
+## Conclusion
+
+This project was developed during a program (FullStack Bootcamp) at the Open Learning Comunity Platform made by the organisation Kulimi. If you have any feedback or suggestions, please let us know.
